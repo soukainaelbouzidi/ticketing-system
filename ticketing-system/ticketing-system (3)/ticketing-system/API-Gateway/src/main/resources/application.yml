@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        # Route pour le service d'événements
+        - id: event-service
+          uri: http://localhost:8087
+          predicates:
+            - Path=/events/**
+
+        # Route pour le service de paiement
+        - id: payment-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/payments/**
+
+        # Route pour le service de réservation
+        - id: reservation-service
+          uri: http://localhost:8089
+          predicates:
+            - Path=/reservation/*   # Utilisez "/reservation/*" pour que cela corresponde à toutes les sous-routes sous "/reservation"
+
+
+        - id: auth-service
+          uri: http://localhost:8095
+          predicates:
+            - Path=/auth/*   # Utilisez "/reservation/*" pour que cela corresponde à toutes les sous-routes sous "/reservation"
+
+
+server:
+  port: 8890
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

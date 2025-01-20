@@ -1,0 +1,26 @@
+.auth-form {
+  max-width: 400px; /* Limite la largeur de la carte */
+  padding: 20px; /* Réduit l'espacement interne */
+}
+
+.form-group.mb-3 {
+  margin-bottom: 15px; /* Réduit l'espacement entre les champs */
+}
+
+.form-control {
+  padding: 10px; /* Réduit le padding interne des champs */
+  font-size: 14px; /* Réduit la taille de la police des champs */
+}
+
+.card-body {
+  padding: 20px; /* Réduit le padding interne de la carte */
+}
+
+h4.f-w-500 {
+  margin-top: 20px; /* Réduit l'espacement avant le titre */
+}
+
+.btn {
+  width: 100%; /* Assure que le bouton occupe toute la largeur de la carte */
+  padding: 12px; /* Réduit le padding du bouton */
+}

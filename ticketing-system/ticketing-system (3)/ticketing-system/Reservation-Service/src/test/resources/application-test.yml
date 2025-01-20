@@ -1,0 +1,31 @@
+server:
+  port: 8098  # Port pour les tests, vous pouvez définir un port différent pour éviter les conflits avec l'application principale.
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb  # URL de la base de données pour les tests.
+    username: postgres  # Utilisateur de la base de données pour les tests.
+    password: 1234  # Mot de passe de la base de données pour les tests.
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10  # Taille maximale du pool de connexions.
+
+  security:
+    enabled: false  # Désactive la sécurité pendant les tests
+
+# Si vous utilisez Eureka ou d'autres services de discovery
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# Désactiver la surveillance ou l'observabilité pour les tests si nécessaire
+management:
+  endpoint:
+    health:
+      show-details: always
+
+# Configurations supplémentaires de logs ou de tests
+logging:
+  level:
+    org.springframework.web: DEBUG  # Niveau de log pour certains composants pendant les tests.

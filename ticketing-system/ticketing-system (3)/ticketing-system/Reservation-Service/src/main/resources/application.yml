@@ -1,0 +1,36 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: Reservation-Service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservation_db
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+  security:
+    enabled=false:
+    eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+

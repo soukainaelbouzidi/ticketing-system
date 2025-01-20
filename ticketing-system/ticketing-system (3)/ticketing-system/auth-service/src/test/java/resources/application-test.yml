@@ -1,0 +1,34 @@
+server:
+  port: 0  # Utilise un port aléatoire pour éviter les conflits pendant les tests
+
+spring:
+  application:
+    name: auth-service-test
+
+  datasource:
+    url: jdbc:h2:mem:testdb  # Utilisation de la base de données H2 en mémoire
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  # Crée et détruit les tables pour chaque test
+    show-sql: true           # Affiche les requêtes SQL dans la console
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true          # Active la console H2 pour déboguer (optionnel)
+      path: /h2-console
+
+  eureka:
+    client:
+      enabled: false         # Désactive Eureka pendant les tests
+  main:
+    allow-bean-definition-overriding: true  # Permet de redéfinir les beans pour les mocks
+
+logging:
+  level:
+    root: ERROR
+    org.springframework: WARN
+    com.eventmanagement: DEBUG  # Logs détaillés pour votre code pendant les tests
